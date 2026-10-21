@@ -166,9 +166,6 @@ export default function Header() {
         </nav>
 
         <div className="sh-actions">
-          <a href={PHONE.href} className="sh-phone" aria-label={`Call us: ${PHONE.label}`}>
-            <PhoneIcon /><span className="sh-phone__n">{PHONE.label}</span>
-          </a>
           <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="ds-btn ds-btn--sm sh-cta">Book a Consultation</a>
           <button
             ref={btnRef}

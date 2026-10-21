@@ -250,7 +250,7 @@ body.sh-lock{overflow:hidden}
 @media (max-width:520px){
   .sh-bar{height:66px}
   .sh-logo img{height:30px}
-  .sh-actions .sh-cta{display:none}   /* CTA moves into the menu + the sticky mobile bar */
+  .sh-actions .sh-cta{display:inline-flex;padding:9px 12px;font-size:13px}   /* keep Book a Consultation visible in the nav on phones */
 }
 
 /* ---- Forms -------------------------------------------------------------- */
