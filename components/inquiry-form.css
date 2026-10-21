@@ -1,0 +1,64 @@
+/* Compact homepage inquiry form (above the footer). Uses the shared ds-* field
+   styles from design-system.css; this file only lays out the section + card. */
+.if-section{padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(56px,8vw,104px)}
+.if-wrap{max-width:760px;margin:0 auto}
+.if-head{text-align:center;margin-bottom:var(--ds-space-6)}
+.if-head .ds-h2{margin:var(--ds-space-3) auto var(--ds-space-4);max-width:22ch}
+.if-head .ds-lead{margin:0 auto;max-width:48ch}
+
+.if-card{
+  position:relative;
+  background:var(--ds-bg);
+  border:1px solid var(--ds-line);
+  border-radius:var(--ds-r-xl);
+  box-shadow:var(--ds-shadow-sm);
+  padding:clamp(24px,5vw,48px);
+}
+
+.if-form{display:flex;flex-direction:column;gap:var(--ds-space-4)}
+.if-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--ds-space-4)}
+.if-field{display:flex;flex-direction:column}
+.if-opt{font-weight:var(--ds-fw-normal,400);color:var(--ds-muted)}
+
+.if-err{
+  background:#FDECEA;
+  border:1px solid var(--ds-danger);
+  color:var(--ds-danger);
+  border-radius:var(--ds-r-md,12px);
+  padding:12px 16px;
+  font-size:var(--ds-fs-small);
+}
+
+.if-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--ds-space-4);margin-top:var(--ds-space-2)}
+.if-submit{min-width:180px}
+.if-alt{margin:0;font-size:var(--ds-fs-small);color:var(--ds-muted)}
+.if-alt a{color:var(--ds-ink);font-weight:var(--ds-fw-bold);text-decoration:underline;text-underline-offset:2px}
+
+.if-spinner{
+  display:inline-block;width:14px;height:14px;margin-right:8px;vertical-align:-2px;
+  border:2px solid rgba(255,244,232,.45);border-top-color:var(--ds-on-dark,#fff);
+  border-radius:50%;animation:if-spin .7s linear infinite;
+}
+@keyframes if-spin{to{transform:rotate(360deg)}}
+
+/* Honeypot: off-screen, never shown to people. */
+.if-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.if-done{text-align:center;padding:clamp(8px,3vw,24px) 0}
+.if-done-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:56px;height:56px;border-radius:50%;
+  background:var(--ds-accent-soft);color:var(--ds-accent-deep);
+  font-size:28px;font-weight:700;margin-bottom:var(--ds-space-4);
+}
+.if-done .ds-h3{margin:0 0 var(--ds-space-3)}
+.if-done p{margin:0 auto var(--ds-space-5);max-width:42ch;color:var(--ds-muted)}
+
+@media (max-width:640px){
+  .if-row{grid-template-columns:1fr}
+  .if-actions{flex-direction:column;align-items:stretch}
+  .if-alt{text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .if-spinner{animation:none}
+}
