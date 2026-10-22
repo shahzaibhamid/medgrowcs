@@ -112,21 +112,36 @@ export default function GrowthHub() {
       }
     });
 
+    activeRef.current = targetIndex;
     setActive(targetIndex);
   }, [applyPosition]);
 
+  // Ring sits at the active step (index / N); `v` (0..1) is how far it has crept toward the next step.
+  // It closes the full circle exactly as the last item hands over to the first.
+  const setRing = useCallback((v = 0) => {
+    const p = Math.min(1, (activeRef.current + v) / N);
+    stageRef.current?.style.setProperty('--gh-ring', p.toFixed(4));
+  }, []);
+
+  // Auto-play: the ring moves linearly from the current step to the next over the dwell time, then the wheel advances.
   const resetTimer = useCallback(() => {
-    if (timerRef.current) clearTimeout(timerRef.current);
+    if (timerRef.current) timerRef.current.kill();
+    timerRef.current = null;
+    setRing(0);
     if (pausedRef.current || mode === 'stacked' || reduced) return;
 
-    timerRef.current = setTimeout(() => {
-      if (!pausedRef.current && mode !== 'stacked' && !reduced) {
-        const next = (activeRef.current + 1) % N;
-        goToIndex(next);
+    const ring = { v: 0 };
+    timerRef.current = gsap.to(ring, {
+      v: 1,
+      duration: MOTION.autoPlayInterval / 1000,
+      ease: 'none',
+      onUpdate: () => setRing(ring.v),
+      onComplete: () => {
+        goToIndex((activeRef.current + 1) % N);
         resetTimer();
       }
-    }, MOTION.autoPlayInterval);
-  }, [goToIndex, mode, reduced]);
+    });
+  }, [goToIndex, setRing, mode, reduced]);
 
   // Start auto-play timer once mounted and layout is desktop
   useEffect(() => {
@@ -135,10 +150,12 @@ export default function GrowthHub() {
       resetTimer();
     }
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
+      if (timerRef.current) timerRef.current.kill();
+      timerRef.current = null;
+      setRing(0);
       gsap.killTweensOf(posRef);
     };
-  }, [mode, reduced, resetTimer, applyPosition]);
+  }, [mode, reduced, resetTimer, applyPosition, setRing]);
 
   const select = useCallback((i) => {
     if (mode === 'stacked') {
@@ -152,12 +169,13 @@ export default function GrowthHub() {
 
   const onMouseEnter = () => {
     pausedRef.current = true;
-    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current?.pause();
   };
 
   const onMouseLeave = () => {
     pausedRef.current = false;
-    resetTimer();
+    if (timerRef.current) timerRef.current.resume();
+    else resetTimer();
   };
 
   // Arrow keys move between items within whichever list/donut has focus.
