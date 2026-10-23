@@ -45,8 +45,6 @@ const CASES = [
 
 const POSTS = [
   { href: '/blog/microneedling-seo-med-spas', cat: 'Found · Medical SEO', title: 'From "Microneedling Near Me" to Booked: The SEO Strategy for Med Spas', img: 'https://qqxqwcnkyafwflxipmyn.supabase.co/storage/v1/object/public/case-study-media/1790081842932-3deaf036-ad0d-4398-94f9-cc3ef2f55262.jpg' },
-  { href: '/blog/seo-aeo-geo-ai-search-guide-2', cat: 'Found · AEO & GEO', title: 'SEO Is No Longer Enough: A Beginner\'s Guide to AEO and GEO in the Age of AI Search', img: 'https://qqxqwcnkyafwflxipmyn.supabase.co/storage/v1/object/public/case-study-media/1786370132859-8d078414-b23d-4bf7-90fb-5cd419e0b9fa.png' },
-  { href: '/blog/how-businesses-lose-money-slow-lead-response', cat: 'Booked · Follow-up', title: 'The Hidden Cost of Slow Lead Response' },
   { href: '/blog/the-fully-booked-business', cat: 'Booked · Bookings', title: 'The Fully-Booked Business: a guide and self-assessment' },
 ];
 

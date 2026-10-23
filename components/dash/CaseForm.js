@@ -2,7 +2,7 @@
 import { useFormState, useFormStatus } from 'react-dom';
 import { saveCaseAction } from '../../app/dashboard/actions';
 
-const FILTERS = ['Healthcare & Clinics'];
+const FILTERS = ['Healthcare and wellness'];
 
 function SubmitButton({ label }) {
   const { pending } = useFormStatus();
@@ -28,7 +28,7 @@ export default function CaseForm({ item = {}, body = '', original = '' }) {
         </div>
         <div>
           <label>Filter group</label>
-          <select name="filter" defaultValue={item.filter || 'Healthcare & Clinics'}>
+          <select name="filter" defaultValue={item.filter || 'Healthcare and wellness'}>
             {FILTERS.map((f) => <option key={f} value={f}>{f}</option>)}
           </select>
         </div>

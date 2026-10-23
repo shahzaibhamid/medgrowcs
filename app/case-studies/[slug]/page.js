@@ -65,7 +65,7 @@ export default async function Page({ params }) {
 
   // Up to three related studies: same industry first, then healthcare, then anything else.
   const all = (await getPublishedCases()).filter((c) => c.slug !== item.slug);
-  const rank = (c) => (c.filter === item.filter ? 0 : c.filter === 'Healthcare & Clinics' ? 1 : 2);
+  const rank = (c) => (c.filter === item.filter ? 0 : c.filter === 'Healthcare and wellness' ? 1 : 2);
   const related = all.map((c, i) => ({ c, i })).sort((a, b) => rank(a.c) - rank(b.c) || a.i - b.i).slice(0, 3).map((x) => x.c);
 
   // Designed case studies store their full layout (<article class="cs-study">…). Bodies
