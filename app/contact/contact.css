@@ -1,0 +1,17 @@
+/* Contact page. Built on design-system.css tokens; the form card itself is styled by inquiry-form.css. */
+
+.ct-hero{padding:calc(76px + clamp(40px,7vw,96px)) 0 var(--ds-section-y)}
+.ct-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.ct-copy .ds-eyebrow{display:block;margin-bottom:var(--ds-space-5)}
+.ct-copy .ds-h1{max-width:14ch;margin-bottom:var(--ds-space-5);font-size:clamp(36px,4.6vw,60px)}
+
+.ct-details{list-style:none;margin:var(--ds-space-6) 0 0;padding:0;border-top:1px solid var(--ds-line-strong)}
+.ct-details li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px var(--ds-space-5);padding:var(--ds-space-4) 0;border-bottom:1px solid var(--ds-line)}
+.ct-label{min-width:56px;font-size:13.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ds-muted)}
+.ct-details a{color:var(--ds-ink);font-weight:600;text-decoration:none}
+.ct-details a:hover,.ct-details a:focus-visible{text-decoration:underline}
+
+@media (max-width:900px){
+  .ct-grid{grid-template-columns:1fr}
+  .ct-copy .ds-h1{max-width:none}
+}

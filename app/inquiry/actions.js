@@ -7,7 +7,7 @@ const clip = (v, n) => String(v || '').trim().slice(0, n);
 
 // Which page a lead came from, shown as its Source in the dashboard. Only known
 // pages get their own label, so a forged value can't put arbitrary text there.
-const SOURCES = { '/': 'Homepage inquiry', '/aesthetics': 'Aesthetics page', '/clinics': 'Clinics page' };
+const SOURCES = { '/': 'Homepage inquiry', '/aesthetics': 'Aesthetics page', '/clinics': 'Clinics page', '/contact': 'Contact page' };
 
 // Public form: no login, so validate everything and keep it small.
 // Returns { ok: true } or { error }.
@@ -24,6 +24,7 @@ export async function submitInquiryAction(_prev, formData) {
 
   if (!name) return { error: 'Please enter your name.' };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: 'Please enter a valid email address.' };
+  if (!business) return { error: 'Please enter your practice or business name.' };
   if (phone && !isValidPhone(phone)) return { error: 'Please enter a valid phone number, e.g. (941) 555-0100.' };
 
   try {

@@ -60,8 +60,8 @@ export default function InquiryForm({ page = '/' }) {
           <input className="ds-input" id="if-phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" maxLength={40} />
         </div>
         <div className="if-field">
-          <label className="ds-label" htmlFor="if-business">Practice / business <span className="if-opt">(optional)</span></label>
-          <input className="ds-input" id="if-business" name="business" type="text" autoComplete="organization" maxLength={80} />
+          <label className="ds-label" htmlFor="if-business">Practice / business</label>
+          <input className="ds-input" id="if-business" name="business" type="text" autoComplete="organization" maxLength={80} required />
         </div>
       </div>
 

@@ -46,6 +46,7 @@ const NAV = [
   },
   { href: '/blog', label: 'Blogs', match: (p) => p.startsWith('/blog') },
   { href: '/work-with-us', label: 'Work With Us', match: (p) => p === '/work-with-us' },
+  { href: '/contact', label: 'Contact Us', match: (p) => p === '/contact' },
 ];
 
 export default function Header() {
