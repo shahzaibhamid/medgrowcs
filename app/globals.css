@@ -2009,6 +2009,8 @@ h1.hero-title--outcome{max-width:18ch;font-size:clamp(30px,4.2vw,54px);line-heig
 .cs-footer__follow h4{margin:0;padding:0;white-space:nowrap}
 .cs-footer__follow h4::after{display:none}
 .cs-footer__follow .cs-social{margin:0;flex-wrap:nowrap;gap:10px}
+.cs-footer a.cs-footer__parent{margin-top:20px;width:auto;font-size:14px;color:var(--ds-ink)}
+.cs-footer a.cs-footer__parent:hover{color:var(--ds-bg)}
 .cs-footer .cs-social a,.cs-footer .cs-social--soon{width:40px;height:40px;padding:0;justify-content:center}
 .cs-footer .cs-social svg{width:18px;height:18px}
 .cs-footer h4{position:relative;padding-bottom:10px}

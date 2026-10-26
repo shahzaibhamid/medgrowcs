@@ -98,6 +98,7 @@ export default function Footer() {
               ))}
             </ul>
             </div>
+            <a className="ds-btn ds-btn--secondary ds-btn--sm cs-footer__parent" href="https://www.codesquad.ai" target="_blank" rel="noopener noreferrer">Visit CodeSquad <span aria-hidden="true">↗</span></a>
           </div>
           <div>
             <h4>Pages</h4>
