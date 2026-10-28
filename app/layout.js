@@ -9,8 +9,8 @@ import SiteChrome from '../components/SiteChrome';
 // favicon indexing doesn't pick up data: URIs, which this used to be.
 export const metadata = {
   metadataBase: new URL('https://www.codesquad.ai'),
-  title: 'MedGrow AI Solutions — Found. Chosen. Booked.',
-  description: 'MedGrow builds one connected growth system — ads, landing pages, CRM, 60-second follow-up, booking, SEO content and reporting — built into your existing stack. No rip-and-replace.'
+  title: 'CodeSquad — Found. Chosen. Booked.',
+  description: 'CodeSquad builds one connected growth system — ads, landing pages, CRM, 60-second follow-up, booking, SEO content and reporting — built into your existing stack. No rip-and-replace.'
 };
 
 export const viewport = {

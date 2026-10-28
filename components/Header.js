@@ -158,8 +158,8 @@ export default function Header() {
   return (
     <header id="header" className={open ? 'sh is-open' : 'sh'}>
       <div className="sh-bar">
-        <a href="/" className="sh-logo" aria-label="MedGrow AI Solutions — home">
-          <img src="/logo-updated.png" alt="MedGrow by CodeSquad" width="169" height="38" />
+        <a href="/" className="sh-logo" aria-label="CodeSquad — home">
+          <img src="/logo-healthcare.svg" alt="HealthCare by CodeSquad" width="165" height="38" />
         </a>
 
         <nav className="sh-nav" aria-label="Main" ref={navRef}>

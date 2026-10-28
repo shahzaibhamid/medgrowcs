@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Page Not Found | MedGrow',
+  title: 'Page Not Found | CodeSquad',
   description: 'The page you’re looking for doesn’t exist or may have moved.',
   robots: { index: false, follow: true }
 };

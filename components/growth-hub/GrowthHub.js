@@ -202,7 +202,7 @@ export default function GrowthHub() {
       <div className="ds-container">
         <div className="hm-head hm-head--center reveal">
           <h2 id="hm-plat-title" className="ds-h2">One system for SEO, AEO, GEO, ads, CRM and automation, all in a single dashboard.</h2>
-          <p className="hm-plat-sub">MedGrow, <em>your growth partner</em>, takes the busywork off your plate</p>
+          <p className="hm-plat-sub">CodeSquad, <em>your growth partner</em>, takes the busywork off your plate</p>
         </div>
       </div>
 

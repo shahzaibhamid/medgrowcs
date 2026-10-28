@@ -1,6 +1,6 @@
-# MedGrow AI Solutions
+# CodeSquad
 
-> MedGrow AI Solutions builds connected patient growth systems for medical practices — medical clinics, med spas and aesthetic clinics, dental practices and plastic surgery practices. Services: medical SEO, AEO & GEO (visibility in AI search such as ChatGPT, Gemini and Google AI Overviews), paid advertising (Google & Meta), website and landing page design, and instant follow-up with CRM and a live dashboard — built into the practice's existing tools. Positioning: "Found. Chosen. Booked."
+> CodeSquad builds connected patient growth systems for medical practices — medical clinics, med spas and aesthetic clinics, dental practices and plastic surgery practices. Services: medical SEO, AEO & GEO (visibility in AI search such as ChatGPT, Gemini and Google AI Overviews), paid advertising (Google & Meta), website and landing page design, and instant follow-up with CRM and a live dashboard — built into the practice's existing tools. Positioning: "Found. Chosen. Booked."
 
 For the complete text of the main pages, case studies and articles in one file, see [/llms-full.txt](https://www.codesquad.ai/llms-full.txt).
 

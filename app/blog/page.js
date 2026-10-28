@@ -3,7 +3,7 @@ import { topicOf, topicsInUse } from '../../lib/postTopics';
 import './insights.css';
 export const revalidate = 30;
 export const metadata = {
-  title: 'Insights — Medical SEO, AEO & GEO, Patient Follow-up | MedGrow AI Solutions',
+  title: 'Insights — Medical SEO, AEO & GEO, Patient Follow-up | CodeSquad',
   description: 'Articles for medical practices on SEO, AEO & GEO, paid ads and patient follow-up.'
 };
 

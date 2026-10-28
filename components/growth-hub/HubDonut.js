@@ -69,7 +69,7 @@ export default function HubDonut({ items, active, onSelect, onMouseEnter, onMous
       ))}
       <div className="gh-hub" aria-hidden="true">
         <small>Your growth partner</small>
-        <strong>MedGrow</strong>
+        <strong>CodeSquad</strong>
         <span className="gh-hub-sub" key={active}>{items[active].shortLabel}</span>
         <span className="gh-hub-count">{String(active + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</span>
       </div>

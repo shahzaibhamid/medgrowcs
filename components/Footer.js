@@ -84,9 +84,9 @@ export default function Footer() {
         <div className="cs-footer__grid">
           <div className="cs-footer__about">
             <a className="cs-brand" href="/">
-              <img className="cs-logo" src="/logo-updated.png" alt="MedGrow by CodeSquad" width="215" height="48" />
+              <img className="cs-logo" src="/logo-healthcare.svg" alt="HealthCare by CodeSquad" width="208" height="48" />
             </a>
-            <p>MedGrow AI Solutions helps medical clinics, med spas, dental practices and plastic surgeons get found, chosen and booked.</p>
+            <p>CodeSquad helps medical clinics, med spas, dental practices and plastic surgeons get found, chosen and booked.</p>
             <div className="cs-footer__follow">
             <ul className="cs-social" aria-label="Social media">
               {SOCIAL.map((s) => (
@@ -140,7 +140,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="cs-footer__bottom">
-          <span>© 2026 MedGrow AI Solutions. All rights reserved.</span>
+          <span>© 2026 CodeSquad. All rights reserved.</span>
           <span className="cs-footer__tag">Found. Chosen. Booked.</span>
         </div>
        </div>

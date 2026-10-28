@@ -1,8 +1,8 @@
 import './fcb.css';
 
 export const metadata = {
-  title: 'Found. Chosen. Booked. — The Patient Growth System | MedGrow AI Solutions',
-  description: 'How MedGrow AI Solutions finds and fixes the leaks between a patient search and a booked appointment, for clinics, med spas, dental and plastic surgery practices. Backed by the Clinic Transformation Guarantee.',
+  title: 'Found. Chosen. Booked. — The Patient Growth System | CodeSquad',
+  description: 'How CodeSquad finds and fixes the leaks between a patient search and a booked appointment, for clinics, med spas, dental and plastic surgery practices. Backed by the Clinic Transformation Guarantee.',
 };
 
 const BOOKING_URL = 'https://calendly.com/code_squad/30min';
@@ -45,6 +45,8 @@ const CASES = [
 
 const POSTS = [
   { href: '/blog/microneedling-seo-med-spas', cat: 'Found · Medical SEO', title: 'From "Microneedling Near Me" to Booked: The SEO Strategy for Med Spas', img: 'https://qqxqwcnkyafwflxipmyn.supabase.co/storage/v1/object/public/case-study-media/1790081842932-3deaf036-ad0d-4398-94f9-cc3ef2f55262.jpg' },
+  { href: '/blog/social-media-for-med-spas-wellness-centers', cat: 'Chosen · Social Media', title: 'Why Social Media Matters for Med Spas and Wellness Centers', img: 'https://qqxqwcnkyafwflxipmyn.supabase.co/storage/v1/object/public/medspa-uploads/blog/social-media-for-med-spas-wellness-centers-1792762987663.jpg' },
+  { href: '/blog/dental-patient-acquisition-seo', cat: 'Found · Medical SEO', title: 'How Dental Practices Get Found, Chosen and Booked', img: 'https://qqxqwcnkyafwflxipmyn.supabase.co/storage/v1/object/public/medspa-uploads/blog/dental-patient-acquisition-seo-1792762249832.jpg' },
   { href: '/blog/the-fully-booked-business', cat: 'Booked · Bookings', title: 'The Fully-Booked Business: a guide and self-assessment' },
 ];
 

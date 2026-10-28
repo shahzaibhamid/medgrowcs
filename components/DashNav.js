@@ -18,7 +18,7 @@ export default function DashNav() {
     <header className="dash-nav">
       <div className="dash-nav__inner">
         <a className="dash-brand" href="/dashboard">
-          <img src="/logo-updated.png" alt="MedGrow by CodeSquad" width="125" height="28" />
+          <img src="/logo-healthcare.svg" alt="HealthCare by CodeSquad" width="122" height="28" />
           <span>Dashboard</span>
         </a>
         <nav className="dash-links">

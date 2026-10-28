@@ -3,8 +3,8 @@ import '../../components/inquiry-form.css';
 import './contact.css';
 
 export const metadata = {
-  title: 'Contact Us | MedGrow AI Solutions',
-  description: 'Get in touch with MedGrow AI Solutions. Send an inquiry, call, email or book a free consultation. We usually reply within one business day.',
+  title: 'Contact Us | CodeSquad',
+  description: 'Get in touch with CodeSquad. Send an inquiry, call, email or book a free consultation. We usually reply within one business day.',
 };
 
 export default function ContactPage() {
