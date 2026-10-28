@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Logo from './Logo';
 
 const BOOKING_URL = 'https://calendly.com/code_squad/30min';
 const PHONE = { href: 'tel:+13073964945', label: '+1 (307) 396-4945' };
@@ -54,9 +55,12 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const btnRef = useRef(null);
   const panelRef = useRef(null);
+  // Mobile accordion: which section is expanded (by label). Opens on the current section.
+  const [sub, setSub] = useState(null);
 
   // Close on navigation.
   useEffect(() => { setOpen(false); }, [path]);
+  useEffect(() => { if (open) setSub(NAV.find((n) => n.menu && n.match(path))?.label ?? null); }, [open, path]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -68,7 +72,7 @@ export default function Header() {
       if (e.key === 'Escape') { setOpen(false); btnRef.current?.focus(); return; }
       if (e.key !== 'Tab' || !panel) return;
       // Keep focus inside the menu + toggle while it is open.
-      const items = [btnRef.current, ...panel.querySelectorAll('a')].filter(Boolean);
+      const items = [btnRef.current, ...panel.querySelectorAll('a, button')].filter((el) => el && el.offsetParent !== null);
       const first = items[0], last = items[items.length - 1];
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
@@ -138,19 +142,41 @@ export default function Header() {
     );
   });
 
-  // Mobile panel: sub-links listed under their parent.
-  const mobileLinks = NAV.map((n) => {
+  // Mobile panel: sections with a menu collapse into an accordion.
+  const mobileLinks = NAV.map((n, i) => {
     const active = n.match(path);
+    const style = { '--i': i };
+    if (!n.menu) return <li key={n.href} style={style}>{linkEl(n, active)}</li>;
+    const isOpen = sub === n.label;
+    const id = `sh-sub-${n.label.replace(/\s+/g, '-').toLowerCase()}`;
     return (
-      <li key={n.href}>
-        {linkEl(n, active)}
-        {n.menu ? (
-          <ul className="sh-panel__sub">
-            {n.menu.flatMap((g) => g.items).filter((it) => it.href !== n.href).map((it) => (
-              <li key={it.href}><a href={it.href}>{it.label}</a></li>
+      <li key={n.href} style={style} className={isOpen ? 'sh-panel__item is-open' : 'sh-panel__item'}>
+        <div className="sh-panel__row">
+          {linkEl(n, active)}
+          <button type="button" className="sh-panel__caret" aria-expanded={isOpen} aria-controls={id}
+            aria-label={`${isOpen ? 'Hide' : 'Show'} ${n.label} links`} onClick={() => setSub(isOpen ? null : n.label)}>
+            <svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
+          </button>
+        </div>
+        <div id={id} className="sh-panel__subwrap">
+          <div className="sh-panel__subinner">
+            {n.menu.map((g) => (
+              <div className="sh-panel__group" key={g.heading}>
+                <p className="sh-panel__h">{g.heading}</p>
+                <ul className="sh-panel__sub">
+                  {g.items.filter((it) => it.href !== n.href).map((it) => (
+                    <li key={it.href}>
+                      <a href={it.href} tabIndex={isOpen ? undefined : -1}>
+                        <span className="sh-panel__l">{it.label}</span>
+                        {it.note ? <span className="sh-panel__n">{it.note}</span> : null}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
-        ) : null}
+          </div>
+        </div>
       </li>
     );
   });
@@ -159,7 +185,7 @@ export default function Header() {
     <header id="header" className={open ? 'sh is-open' : 'sh'}>
       <div className="sh-bar">
         <a href="/" className="sh-logo" aria-label="CodeSquad — home">
-          <img src="/logo-healthcare.svg" alt="HealthCare by CodeSquad" width="165" height="38" />
+          <Logo size="md" />
         </a>
 
         <nav className="sh-nav" aria-label="Main" ref={navRef}>
@@ -186,9 +212,13 @@ export default function Header() {
         <nav aria-label="Mobile">
           <ul className="sh-panel__list">{mobileLinks}</ul>
         </nav>
-        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="ds-btn sh-panel__cta">Book a Consultation →</a>
-        <a href={PHONE.href} className="sh-panel__phone"><PhoneIcon />Call {PHONE.label}</a>
-        <p className="sh-panel__note">Free 30-minute call · or <a href="/work-with-us">work with us</a></p>
+        <div className="sh-panel__foot">
+          <p className="sh-panel__note">Free 30-minute strategy call · no obligation</p>
+          <div className="sh-panel__actions">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="ds-btn sh-panel__cta">Book a Consultation →</a>
+            <a href={PHONE.href} className="sh-panel__phone" aria-label={`Call ${PHONE.label}`}><PhoneIcon /></a>
+          </div>
+        </div>
       </div>
       {open ? <div className="sh-scrim" aria-hidden="true" onClick={() => setOpen(false)} /> : null}
     </header>

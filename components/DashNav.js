@@ -1,6 +1,7 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import { logoutAction } from '../app/dashboard/actions';
+import Logo from './Logo';
 
 const links = [
   { href: '/dashboard', label: 'Posts' },
@@ -18,7 +19,7 @@ export default function DashNav() {
     <header className="dash-nav">
       <div className="dash-nav__inner">
         <a className="dash-brand" href="/dashboard">
-          <img src="/logo-healthcare.svg" alt="HealthCare by CodeSquad" width="122" height="28" />
+          <Logo size="sm" variant="dark" animate={false} />
           <span>Dashboard</span>
         </a>
         <nav className="dash-links">
