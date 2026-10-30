@@ -13,7 +13,7 @@
 .hm-tagline span:last-child{color:var(--ds-accent-deep)}
 
 /* ---- Hero --------------------------------------------------------------- */
-.hm-hero{position:relative;overflow:hidden;padding:calc(76px + clamp(40px,7vw,96px)) 0 clamp(64px,8vw,112px)}
+.hm-hero{position:relative;overflow:hidden;box-sizing:border-box;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:calc(76px + clamp(40px,7vw,96px)) 0 clamp(64px,8vw,112px)}
 .hm-hero-curve{right:-4%;bottom:-6%;width:min(620px,52vw);opacity:.9}
 .hm-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,96px);align-items:center}
 .hm-hero-title{margin:var(--ds-space-5) 0;max-width:14ch;font-size:clamp(42px,6.2vw,80px)}
@@ -207,7 +207,13 @@
 .hm-hero-grid{grid-template-columns:1fr;justify-items:center;text-align:center}
 .hm-hero-copy{display:flex;flex-direction:column;align-items:center}
 .hm-hero-copy .hm-tagline{justify-content:center}
-.hm-hero-title{max-width:18ch;margin-inline:auto}
+.hm-hero-title{max-width:23ch;margin-inline:auto}
+.hm-hero-highlight{position:relative;display:inline-block;white-space:nowrap;font-style:italic;color:#2454b8;background:linear-gradient(100deg,#2454b8,#16bcb5);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.12em}
+.hm-hero-underline{position:absolute;left:0;bottom:-.02em;width:100%;height:.3em;overflow:visible;fill:none;stroke:url(#hm-underline-gradient);stroke-width:4;stroke-linecap:round}
+.hm-hero-underline path{stroke-dasharray:1;stroke-dashoffset:1;animation:hm-underline-draw 3.6s ease-in-out .6s infinite}
+@keyframes hm-underline-draw{0%{stroke-dashoffset:1;opacity:1}45%,80%{stroke-dashoffset:0;opacity:1}95%,100%{stroke-dashoffset:0;opacity:0}}
+@media (max-width:640px){.hm-hero-title{font-size:clamp(26px,6.4vw,40px)}}
+@media (prefers-reduced-motion:reduce){.hm-hero-underline path{animation:none;stroke-dashoffset:0}}
 .hm-hero-lead{max-width:62ch}
 .hm-hero-cta{justify-content:center}
 .hm-hero-visual{min-height:0;width:100%;max-width:880px;display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(16px,2.5vw,32px);align-items:end}
@@ -332,11 +338,13 @@
 @media (prefers-reduced-motion:reduce){.hm-sys-item::after{animation:none !important;width:0}}
 
 /* Hero photo background: warm cream wash, strongest behind the centred copy so the photo shows at the edges */
-.hm-hero{background:url("/hero-bg.jpg") center/cover no-repeat}
+.hm-hero{background:url("/healthcare-workspace.png") center/cover no-repeat}
 .hm-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 55% 70% at 50% 52%,rgba(255,244,232,.9) 0%,rgba(255,244,232,.7) 45%,rgba(255,244,232,.08) 100%),linear-gradient(rgba(255,236,218,.2),rgba(255,236,218,.2))}
 .hm-hero-curve{z-index:0}
 @media (max-width:640px){.hm-hero{background-position:70% center}.hm-hero::before{background:linear-gradient(rgba(255,244,232,.86),rgba(255,244,232,.8))}}
 
 /* Home: let the hero photo show behind the nav until the page is scrolled */
-body:has(.hm-hero) #header.sh:not(.scrolled):not(.is-open){background:transparent}
+body:has(.hm-hero) #header.sh:not(.scrolled):not(.is-open),
+body:has(.hm-hero) #header.sh:not(.scrolled):not(.is-open) .sh-bar{background:transparent}
+body:has(.hm-hero) .sh-bar{transition:height .25s var(--ds-ease),background-color .25s}
 body:has(.hm-hero) #header.sh{transition:background-color .25s,border-color .25s,box-shadow .25s}

@@ -85,7 +85,7 @@ export default function Footer() {
        <div className="cs-footer__card">
         <div className="cs-footer__grid">
           <div className="cs-footer__about">
-            <a className="cs-brand" href="/" aria-label="HealthCare by CodeSquad — home">
+            <a className="cs-brand" href="/" aria-label="CodeSquad AI Solutions — home">
               <Logo size="lg" animate={false} />
             </a>
             <p>CodeSquad helps medical clinics, med spas, dental practices and plastic surgeons get found, chosen and booked.</p>

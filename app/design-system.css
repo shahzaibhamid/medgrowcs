@@ -204,46 +204,10 @@ body:not(:has(.dash)) .display,
 .sh-logo img{height:38px;width:auto;display:block}
 
 /* ---- Brand logo (components/Logo.js) --------------------------------- */
-.brand-logo{--bl-mark:38px;--bl-name:23px;--bl-by:9.5px;display:inline-flex;align-items:center;gap:calc(var(--bl-mark)*.3);line-height:1;color:var(--ds-ink);white-space:nowrap}
-.brand-logo--sm{--bl-mark:28px;--bl-name:17px;--bl-by:7.5px}
-.brand-logo--lg{--bl-mark:46px;--bl-name:28px;--bl-by:11px}
-.brand-logo__mark{width:var(--bl-mark);height:var(--bl-mark);flex:0 0 auto;overflow:visible;transition:transform .5s var(--ds-ease)}
-.brand-logo__tile{fill:var(--ds-ink)}
-.brand-logo__cross{fill:none;stroke:var(--ds-accent);stroke-width:5;stroke-linecap:round;transform-box:fill-box;transform-origin:center}
-.brand-logo__text{display:flex;flex-direction:column;gap:calc(var(--bl-name)*.2)}
-.brand-logo__name{font-family:var(--ds-font-display);font-weight:600;font-size:var(--bl-name);letter-spacing:-.02em;font-variation-settings:"opsz" 72}
-.brand-logo__name em{font-style:italic;font-weight:500;color:var(--ds-accent-deep);margin-left:.04em}
-.brand-logo__by{font-family:var(--ds-font-body);font-weight:700;font-size:var(--bl-by);letter-spacing:.2em;text-transform:uppercase;color:var(--ds-muted);padding-left:.1em}
-.brand-logo__by b{position:relative;font-weight:700;color:var(--ds-ink)}
-.brand-logo__by b::after{content:"";position:absolute;left:0;right:.2em;bottom:-3px;height:2px;border-radius:2px;background:var(--ds-accent);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ds-ease)}
-.brand-logo--dark{color:var(--ds-on-dark)}
-.brand-logo--dark .brand-logo__tile{fill:var(--ds-on-dark)}
-.brand-logo--dark .brand-logo__cross{stroke:var(--ds-accent)}
-.brand-logo--dark .brand-logo__name em{color:var(--ds-accent-on-dark)}
-.brand-logo--dark .brand-logo__by{color:var(--ds-on-dark-muted)}
-.brand-logo--dark .brand-logo__by b{color:var(--ds-on-dark)}
-
-/* hover / keyboard focus on the wrapping link */
-a:hover>.brand-logo .brand-logo__mark,a:focus-visible>.brand-logo .brand-logo__mark{transform:rotate(90deg)}
-a:hover>.brand-logo .brand-logo__by b::after,a:focus-visible>.brand-logo .brand-logo__by b::after{transform:scaleX(1)}
-
-/* entrance (once) + idle heartbeat */
-.brand-logo--animate .brand-logo__tile{transform-box:fill-box;transform-origin:center;animation:bl-pop .55s cubic-bezier(.34,1.56,.64,1) both}
-.brand-logo--animate .brand-logo__cross path{stroke-dasharray:1;animation:bl-draw .45s var(--ds-ease) both}
-.brand-logo--animate .brand-logo__cross path:first-child{animation-delay:.25s}
-.brand-logo--animate .brand-logo__cross path:last-child{animation-delay:.4s}
-.brand-logo--animate .brand-logo__cross{animation:bl-beat 6s ease-in-out 1.6s infinite}
-.brand-logo--animate .brand-logo__name{animation:bl-rise .6s var(--ds-ease) .35s both}
-.brand-logo--animate .brand-logo__by{animation:bl-rise .6s var(--ds-ease) .5s both}
-@keyframes bl-pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
-@keyframes bl-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-@keyframes bl-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-@keyframes bl-beat{0%,14%,100%{transform:scale(1)}4%{transform:scale(1.14)}9%{transform:scale(1.08)}}
-@media (prefers-reduced-motion:reduce){
-  .brand-logo *,.brand-logo *::after{animation:none!important;transition:none!important}
-  a:hover>.brand-logo .brand-logo__mark,a:focus-visible>.brand-logo .brand-logo__mark{transform:none}
-}
-
+.brand-logo{--bl-width:180px;display:inline-flex;align-items:center;max-width:100%;line-height:1}
+.brand-logo--sm{--bl-width:150px}
+.brand-logo--lg{--bl-width:220px}
+.brand-logo .brand-logo__image{display:block;width:var(--bl-width);max-width:100%;height:auto;object-fit:contain}
 .sh-nav{margin-inline:auto}
 .sh-list,.sh-panel__list{list-style:none;margin:0;padding:0}
 .sh-list{display:flex;align-items:center;gap:clamp(4px,1vw,10px)}
@@ -324,7 +288,7 @@ body.sh-lock{overflow:hidden}
 @media (max-width:520px){
   .sh-bar{height:66px}
   .sh-logo img{height:30px}
-  .sh-logo .brand-logo{--bl-mark:28px;--bl-name:17px;--bl-by:7.5px}
+  .sh-logo .brand-logo{--bl-width:140px}
   .sh-actions .sh-cta{display:none}   /* phones: booking lives in the menu panel (.sh-panel__cta) */
 }
 
